@@ -1,0 +1,18 @@
+form {
+    display: flex;
+}
+
+mat-form-field {
+    width: 50%;
+}
+
+.lyrics-container {
+    white-space: pre-line;
+    text-align: center;
+    background: rgb(85,85,85);
+    background: radial-gradient(circle, rgba(85,85,85,1) 0%, rgba(0,0,0,1) 100%);
+    color: #fff;
+    font-weight: 900;
+    font-size: 1rem;
+    font-family: sans-serif;
+}

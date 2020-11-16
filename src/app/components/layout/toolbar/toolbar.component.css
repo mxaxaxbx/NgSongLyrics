@@ -1,0 +1,24 @@
+mat-toolbar {
+    display: flex;
+    position: fixed;
+    justify-content: space-between;
+    z-index: 100;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+div.spacer {
+    flex: 1 1 0%;
+    box-sizing: border-box;
+}
+
+nav.nav-toolbar {
+    place-content: center flex-end;
+    align-items: center;
+    flex-direction: row;
+    box-sizing: border-box;
+    display: flex;
+}

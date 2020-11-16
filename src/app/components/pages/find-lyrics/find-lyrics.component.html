@@ -1,0 +1,65 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>
+            Find Lyrics
+        </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+        <form [formGroup]="lyricForm" id="lyricForm" (ngSubmit)="findLyric(lyricForm.value)">
+            <mat-form-field appearance="outline">
+                <mat-label>Song</mat-label>
+                <input
+                    matInput
+                    formControlName="title"
+                    placeholder="P. Ej. Decode"
+                    autofocus
+                />
+                <mat-error *ngIf="lyricForm.controls['title'].errors?.required">Song is required</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Artist</mat-label>
+                <input
+                    matInput
+                    formControlName="artist"
+                    placeholder="P. Ej. Paramore"
+                    autofocus
+                />
+                <mat-error *ngIf="lyricForm.controls['artist'].errors?.required">Artist is required</mat-error>
+            </mat-form-field>
+        </form>
+    </mat-card-content>
+    
+    <mat-card-actions>
+        <p align="end">
+            <button mat-raised-button color="primary" type="submit" form="lyricForm" [disabled]="lyricForm.invalid">
+                <mat-icon>search</mat-icon>
+                Find
+            </button>
+
+        </p>
+    </mat-card-actions>
+</mat-card><br/>
+
+<div *ngIf="loading && !lyrics">
+    <mat-card>
+        <mat-card-content>
+            <mat-spinner></mat-spinner>
+        </mat-card-content>
+    </mat-card>
+</div>
+
+<div *ngIf="!loading && lyrics">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Lyrics of {{lyricForm.controls['title'].value}} by {{lyricForm.controls['artist'].value}}</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content class="lyrics-container">
+            <br/>
+            {{lyrics}}
+            <br/>
+        </mat-card-content>
+    </mat-card>
+</div>
